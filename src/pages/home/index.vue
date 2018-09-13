@@ -1,6 +1,6 @@
 <template>
     <div class="home-container">
-        <div class="movie-container" v-for="item in movies" :key="item.id" v-if="movies.length > 0">
+        <div @click="goMovieDetail(item.id)" class="movie-container" v-for="item in movies" :key="item.id" v-if="movies.length > 0">
           <img :src="item.images.large || item.images.small || item.images.medium" alt="电影剧照" class="movie-img">
           <p class="movie-info">{{item.title}}<span class="movie-score">{{item.rating.average}}</span></p>
         </div>
@@ -35,6 +35,11 @@ export default {
     this.getRecentlyReleased();
   },
   methods: {
+    // 跳转到电影详情页
+    goMovieDetail(movieId) {
+      const url = `../detail/main?id=${movieId}&city=${this.currentCity}`;
+      wx.navigateTo({ url });
+    },
     // 获取最近上映电影（参数：地址[address]）
     getRecentlyReleased() {
       let url = `https://api.douban.com/v2/movie/in_theaters?apikey=0b2bdeda43b5688921839c8ecb20399b&city=${this.currentCity}&start=${this.Pagination.start}&count=${this.Pagination.count}`;
@@ -159,6 +164,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import './../../assets/scss/index.scss';
 .home-container {
   padding-top: 10rpx;
   display: flex;
@@ -175,8 +181,8 @@ export default {
     }
     .movie-info {
       text-align: center;
-      font-size: 26rpx;
-      color: #27BDFA;
+      font-size: $middleFont;
+      color: $mainColor;
       .movie-score {
         margin-left: 10rpx;
         color: #e09015;
