@@ -1,7 +1,16 @@
-# doubanmovie
+# 豆瓣微信小程序
 
-> mock douban movie
+> 基于mpvue、微信API、豆瓣API
 
+# 界面
+## 欢迎页面
+![欢迎页面](https://i.imgur.com/B7NAc6Z.png)
+## 热映电影页面
+![热映电影页面](https://i.imgur.com/CEX9CaR.png)
+## 电影介绍页面
+![电影介绍页面1](https://i.imgur.com/azmIWq2.png)
+![电影介绍页面2](https://i.imgur.com/DcCYf8Y.png)
+![电影介绍页面3](https://i.imgur.com/NobHK3G.png)
 ## Build Setup
 
 ``` bash
